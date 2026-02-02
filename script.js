@@ -28,3 +28,24 @@ const aboutSection = document.getElementById("about");
 ctaButton.addEventListener("click", () => {
   aboutSection.scrollIntoView({ behavior: "smooth" });
 });
+
+const revealElements = document.querySelectorAll("section, .habitat-item, .threat-item, .fact-card");
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    }
+  },
+  { 
+    threshold: 0.15,
+  }
+);
+
+revealElements.forEach((el) => {
+  el.classList.add("reveal");
+  revealObserver.observe(el);
+});

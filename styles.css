@@ -360,3 +360,73 @@ footer {
 .habitat-item p {
   font-size: 0.95rem;
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+#cta {
+  linear-gradient(
+    to bottom,
+    transparent,
+    rgba(127, 180, 255, 0.08)
+  );
+}
+
+#cta .section-inner {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+#cta h2 {
+  margin-bottom: 1rem;
+}
+
+#cta p {
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+}
+
+#cta a {
+  display: inline-block;
+  padding: 0.9rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 500;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+#cta a:hover {
+  background-color: rgba(127, 180, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+:focus-visible {
+  outlien: 2px solid var(--color-accent);
+  outline: 3px;
+}
+
+button:focus-visible, 
+a:focus-visible {
+  border-radius: 6px;
+}
